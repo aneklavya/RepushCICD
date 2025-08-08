@@ -10,7 +10,7 @@
   "name": "application",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:aneklavya/application.git",
-  "author": "anurag <anurag.bct76@kecktm.edu.np>",
+  "repository": "git@github.com:aneklavya/RepushCICD.git",
+  "author": "anurag <an.uurraag@gmail.com>",
   "license": "MIT"
 }
