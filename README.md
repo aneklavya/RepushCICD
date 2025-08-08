@@ -1,0 +1,13 @@
+# application
+feature/test branch
+feature/newtest branch
+feature/user branch
+from dev branch
+from dev branch again
+from dev branch again
+from dev branch again after adding user to the docker group
+from dev branch again
+from the dev branch again
+from the feature branch
+from the feature/test branch
+from the dev branch

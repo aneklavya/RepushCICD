@@ -1,0 +1,102 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
+
+jobs:
+  validate-pr-title:
+    name: Validate PR Title
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  frontend-lint:
+    name: Frontend Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g yarn
+      - run: yarn install
+        working-directory: ./frontend
+      - run: yarn lint
+        working-directory: ./frontend
+
+  frontend-build:
+    name: Frontend Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g yarn
+      - run: yarn install
+        working-directory: ./frontend
+      - run: yarn build
+        working-directory: ./frontend
+
+  backend1-lint:
+    name: Backend1 Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g yarn
+      - run: yarn install
+        working-directory: ./backend1
+      - run: yarn lint
+        working-directory: ./backend1
+
+  backend1-build:
+    name: Backend1 Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g yarn
+      - run: yarn install
+        working-directory: ./backend1
+      - run: yarn build
+        working-directory: ./backend1
+
+  backend2-lint:
+    name: Backend2 Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g yarn
+      - run: yarn install
+        working-directory: ./backend2
+      - run: yarn lint
+        working-directory: ./backend2
+
+  backend2-build:
+    name: Backend2 Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g yarn
+      - run: yarn install
+        working-directory: ./backend2
+      - run: yarn build
+        working-directory: ./backend2
